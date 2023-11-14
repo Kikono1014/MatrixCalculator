@@ -112,12 +112,12 @@ vector<vector<double>> inputRandomMatrix ()
 
 int main ()
 {
-    bool run { 1 };
+    bool isRun { 1 };
 
-    while (run) {
+    while (isRun) {
         double chosenOption { -1 };
         std::cout << "Choose option (0 - for help): ";
-        getCorrectIntegerDiapasonInput(chosenOption, 0, 14);
+        getCorrectIntegerDiapasonInput(chosenOption, 0, 15);
 
         std::cout << std::endl;
         
@@ -139,6 +139,7 @@ int main ()
             std::cout << "12 - Transpose matrix"                << std::endl;
             std::cout << "13 - Inverse matrix"                  << std::endl;
             std::cout << "14 - Matrix rank"                     << std::endl;
+            std::cout << "15 - Exit"                            << std::endl;
         }
 
         if (chosenOption == 1) {
@@ -264,8 +265,11 @@ int main ()
 
             std::cout << matrixRank(
                     getMatrixByName(matrixName)
-                ) << 
+                ) <<
             std::endl;
+        }
+        if (chosenOption == 15) {
+            isRun = 0;
         }
 
         if (
