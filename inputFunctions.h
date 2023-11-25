@@ -6,6 +6,9 @@
 #include <cmath>
 
 
+//! File with based get correct input functions
+
+
 void clearCin ();
 void getCorrectDiapasonInput (
         double& input,

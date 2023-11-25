@@ -13,16 +13,19 @@ using std::unordered_map;
 using std::vector;
 using std::string;
 
+// map for saving matrices by name, unordered cause it's faster
 std::unordered_map<string, vector<vector<double>>> savedMatrices {};
 
-void savingMatrix (const vector<vector<double>>& matrix);
-string         inputMatrixName     ();
-string         getOneMatrixName    ();
-vector<string> getTwoMatricesNames ();
-vector<vector<double>> getMatrixByName   (string matrixName);
-vector<vector<double>> inputRandomMatrix ();
+void                   savingMatrix        (const vector<vector<double>>& matrix);
+string                 inputMatrixName     ();
+string                 getOneMatrixName    ();
+vector<string>         getTwoMatricesNames ();
+vector<vector<double>> getMatrixByName     (string matrixName);
+vector<vector<double>> inputRandomMatrix   ();
 
 
+/// @brief Save matrix, if user want it, to hash-table by inputted name
+/// @param matrix matrix to save
 void savingMatrix (const vector<vector<double>>& matrix)
 {
     std::cout << std::endl;
@@ -43,6 +46,8 @@ void savingMatrix (const vector<vector<double>>& matrix)
     std::cout << std::endl;
 }
 
+/// @brief Try to input name
+/// @return name or "ERoRe"
 string inputMatrixName ()
 {
     string matrixName {};
@@ -60,14 +65,16 @@ string inputMatrixName ()
     }
 }
 
+/// @brief Get matrix name from user
+/// @return matrix name
 string getOneMatrixName ()
 {
     std::cout << "Input matrix name:" << std::endl;
-    string matrixName { inputMatrixName() };
-    std::cout << std::endl;
-    return matrixName;
+    return inputMatrixName();
 }
 
+/// @brief Get two matrices name from user
+/// @return vector of 2 names
 vector<string> getTwoMatricesNames ()
 {
     std::cout << "Input matrices names:" << std::endl;
@@ -79,6 +86,9 @@ vector<string> getTwoMatricesNames ()
     return { matrixName1, matrixName2 };
 }
 
+/// @brief Get matrix from saved matrices in hash-table
+/// @param matrixName name to find
+/// @return matrix from saved
 vector<vector<double>> getMatrixByName (string matrixName)
 {
     if (matrixName != "ERoRe") {
@@ -89,6 +99,8 @@ vector<vector<double>> getMatrixByName (string matrixName)
     }
 }
 
+/// @brief Create random matrix from users input
+/// @return result matrix
 vector<vector<double>> inputRandomMatrix ()
 {
     double height     { 0 };
